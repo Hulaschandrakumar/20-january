@@ -1,0 +1,67 @@
+// Payroll System
+// Write a C++ program to find out the payroll system using single inheritance.
+// Input and Output Format
+
+#include<iostream>
+#include<string.h>
+#include<math.h>
+#include<stdalign.h>
+using namespace std;
+class emp {
+public:
+    int emp_no;
+    char emp_name[20], emp_des[20];
+
+    void get() {
+        cout << "Enter the employee number:";
+        cin>>emp_no;
+        cout << "Enter the employee name:";
+        cin>>emp_name;
+        cout << "Enter the designation:";
+        cin>>emp_des;
+    }
+};
+
+class salary : public emp {
+    float basic_payment, human_resource_allowance, dearness_allowance, profibility_fund, Calculate;
+public:
+
+    void get1() {
+        cout << "Enter the basic payment: ";
+        cin>>basic_payment;
+        cout << "Enter the Humen Resource Allowance: ";
+        cin>>human_resource_allowance;
+        cout << "Enter the Dearness Allowance: ";
+        cin>>dearness_allowance;
+        cout << "Enter the Profitablity Fund: ";
+        cin>>profibility_fund;
+    }
+
+    void calculate() {
+        Calculate = basic_payment + human_resource_allowance + dearness_allowance - profibility_fund;
+    }
+
+    void display() {
+        cout << emp_no << "\t" << emp_name << "\t" << emp_des << "\t" << basic_payment << "\t";
+        cout<< human_resource_allowance << "\t" << dearness_allowance << "\t" << profibility_fund << "\t" << calculate << "\n";
+    }
+};
+
+int main() {
+    int i, n;
+    char ch;
+    salary s[10];
+    clrscr();
+    cout << "Enter the number of employee:";
+    cin>>n;
+    for (i = 0; i < n; i++) {
+        s[i].get();
+        s[i].get1();
+        s[i].calculate();
+    }
+    cout << "\n no_emp \t emp_no \t emp_name\t emp_des \t basic_payment \t human_resource_allowance \t dearness_allowance \t profibility_fund \t Calculate \n";
+    for (i = 0; i < n; i++) {
+        s[i].display();
+    }
+    getch();
+}
